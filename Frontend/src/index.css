@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'BALIGE';
+    src: url('../public/fonts/balige/Balige\ Vintage\ -\ Personal\ Use.otf');
+}
+@font-face {
+    font-family: 'DEVORANA';
+    src: url('../public/fonts/derovana/DerovanaDemoRegular.ttf');
+}
+@font-face {
+    font-family: 'DOLCE';
+    src: url('../public/fonts/gellix/GellixRegular.otf');
+}
+@font-face {
+    font-family: 'DOLCEB';
+    src: url('../public/fonts/gellix/GellixBold.otf');
+}
