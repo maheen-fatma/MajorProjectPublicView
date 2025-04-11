@@ -64,7 +64,8 @@ function Post() {
   }
 
   const likeToggle = async () => {
-    try {
+    alert("This is a demo version of the application.\n\nInteractive features such as adding likes are disabled.\n\nIf you'd like access to the full version, please contact Maheen Fatma.");
+    /*try {
       const response = await axios.post(`${API_URL}/posts/${postId}/like`, {}, {
         withCredentials: true, 
     });
@@ -81,7 +82,7 @@ function Post() {
     return response.data
     } catch (error) {
       throw error.response?.data || "Could not liked/unliked the post";
-    }
+    }*/
   }
 
   //to fetch that particular post whenever there is a change in the id parameter fetched from the url 

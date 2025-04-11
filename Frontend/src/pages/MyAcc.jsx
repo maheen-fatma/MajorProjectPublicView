@@ -40,10 +40,7 @@ function MyAcc() {
     }
 
     const handleEdit = () => {
-        if(isEditable){
-            updateInfo()
-        }
-        setIsEditable((prev)=>!prev)
+        alert("This is a demo version of the application.\n\nInteractive features like editing user info is disabled.\n\nIf you'd like access to the full version, please contact Maheen Fatma.");
     }
 
     const handleChange = (e) => {
@@ -90,6 +87,7 @@ function MyAcc() {
             <button 
                 className='transition duration-500 hover:bg-buttons1 py-3 px-6 bg-gray-50' 
                 onClick={handleEdit}
+                
             >
                 {isEditable ? "Save" : "Edit"}
             </button>

@@ -19,6 +19,7 @@ function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    if(email==="samplemail@gmail.com" || username=="sample_user"){
     try {
       const session = await authService.login({ email, username, password });
       if (session) {
@@ -29,6 +30,9 @@ function SignIn() {
     } catch (error) {
       setError(error?.message || 'Something went wrong. Please try again.');
     }
+  } else {
+    alert('This is a demo version. Interaction features are disabled. Please use the provided SignIn credentials for accessing the application.')
+  }
   };
 
   return (

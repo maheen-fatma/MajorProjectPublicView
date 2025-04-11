@@ -20,7 +20,7 @@ function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    try {
+    /*try {
       const formData = new FormData();
       formData.append('fullName', fullName);
       formData.append('username', username);
@@ -34,7 +34,8 @@ function SignUp() {
       }
     } catch (error) {
       setError(error.message || 'Something went wrong. Please try again.');
-    }
+    }*/
+   alert('This is a demo version. Interaction features are disabled. Please use the provided SignIn credentials for accessing the application.')
   };
 
   return (

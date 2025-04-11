@@ -58,7 +58,7 @@ function AllPosts() {
       <ResponsiveMasonry columnsCountBreakPoints={{350: 2, 750: 3, 900: 4}}>
         <Masonry gutter="25px">
       {posts && posts.map((item,index)=>(
-        <div key={index} className=' '>
+        <div key={item._id} className=' '>
             <PostPreview {...item} />
         </div>
       ))}

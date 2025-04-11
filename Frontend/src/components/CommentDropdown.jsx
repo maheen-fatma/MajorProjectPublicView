@@ -8,7 +8,8 @@ const CommentDropdown = ({comments: initialComments=[], postId, postOwnerId})=>{
     const [comments, setComments] = useState([...initialComments])
     const handleCommentSubmit= async () => {
       if(!newComment.trim()) return;
-      try { 
+      alert("This is a demo version of the application.\n\nInteractive features like adding new comments are disabled.\n\nIf you'd like access to the full version, please contact Maheen Fatma.");
+      /*try { 
         const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/posts/${postId}/comment`,{
           commentContent: newComment,
         },{
@@ -18,7 +19,7 @@ const CommentDropdown = ({comments: initialComments=[], postId, postOwnerId})=>{
         setNewComment("")
       } catch (error) {
         console.error("Error adding comment:", error.response?.data || error.message);
-      }
+      }*/
     }
     const handleDeleteComment= async(commentId)=>{
       try {

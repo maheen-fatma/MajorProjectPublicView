@@ -19,33 +19,8 @@ function EditAvatar() {
         e.preventDefault()
         setError("")
         setSuccessMessage("");
-        try{
-            const formData = new FormData()
-            if (avatar) formData.append("avatar", avatar);
-            const response = await axios.patch(
-                `${import.meta.env.VITE_BACKEND_URL}/users/update-avatar`,
-                formData,
-                { withCredentials: true }
-            );
-            const updatedUser = response.data.data; 
-            dispatch(login(updatedUser));
-            setSuccessMessage("Avatar Changed Successfully"); // Show success message
-            
+        alert("This is a demo version of the application.\n\nInteractive features like editing user avatar is disabled.\n\nIf you'd like access to the full version, please contact Maheen Fatma.");
 
-            setTimeout(() => {
-                navigate("/my-account"); // Navigate after 2 seconds
-            }, 1000);
-          
-        }
-        catch(error){
-            console.log(error);
-            
-            if (error.response?.data?.message) {
-                setError(error.response.data.message);
-            } else {
-                setError("Something went wrong. Please try again.");
-            }
-        }
         
       }
   return (

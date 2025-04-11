@@ -31,8 +31,9 @@ function PostManipulation({post}) {
     const handleSubmit = async (e) => {
         e.preventDefault()
         setError("")
-        setLoading(true)
-        try {
+        //setLoading(true)
+        alert("This is a demo version of the application.\n\nInteractive features like adding new posts are disabled.\n\nIf you'd like access to the full version, please contact Maheen Fatma.");
+        /*try {
             const formData = new FormData()
             formData.append("title", title);
             formData.append("content", content);
@@ -52,7 +53,7 @@ function PostManipulation({post}) {
               } else {
                 setError("Something went wrong. Please try again.");
               }
-        }
+        }*/
 
     }
   return loading ? (

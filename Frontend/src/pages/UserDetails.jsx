@@ -43,8 +43,10 @@ const handleClick = (id) => {
     setIsFollowing(response.data.data)
   }
   const toggleFollow = async () => {
-    setIsFollowing(!isFollowing)
-    const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/follows/followToggle/${userId}`,{},{withCredentials:true})
+    alert("This is a demo version of the application.\n\nInteractive features like follow/unfollow are disabled.\n\nIf you'd like access to the full version, please contact Maheen Fatma.");
+
+    /*setIsFollowing(!isFollowing)
+    const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/follows/followToggle/${userId}`,{},{withCredentials:true})*/
   }
 
   const getFollowersAndFollowing = async () => {
@@ -57,16 +59,15 @@ const handleClick = (id) => {
   }
   const fetchPosts = async () => {
     dbService.getAllPost(userId, page)
-        .then((newPosts) => {
-            if(newPosts.length >0){
-              setPosts((prevPosts) => [...prevPosts, ...newPosts])
-              setPage((prevPage) => prevPage + 1);
-            }  else {
-              setHasMore(false);
-            }
-          })
-          .catch(() => setHasMore(false));    
-    
+      .then((newPosts) => {
+        if (newPosts.length > 0) {
+          setPosts((prevPosts) => [...prevPosts, ...newPosts]);
+          setPage((prev) => prev + 1);  // page is updated here AFTER posts are fetched
+        } else {
+          setHasMore(false);
+        }
+      })
+      .catch(() => setHasMore(false));
   };
     useEffect(()=>{
       getDetails()
@@ -75,8 +76,11 @@ const handleClick = (id) => {
       setPosts([]); // Reset posts when userId changes
       setPage(1);
       setHasMore(true);
-      fetchPosts();
     },[userId])
+    
+    useEffect(() => {
+      fetchPosts();
+    }, [page])
   return (
     <div className="max-w-6xl mx-auto bg-white shadow-lg rounded-lg p-6 mt-10 text-center">
       {/* Avatar */}
@@ -166,17 +170,17 @@ const handleClick = (id) => {
         <div className="mt-6">
         <h3 className="text-lg font-semibold mb-2">Posts</h3>
         {posts.length > 0 ? (
-          <InfiniteScroll dataLength={posts.length} next={fetchPosts} hasMore={hasMore} loader={<h4>Loading posts...</h4>} >
+          
             <ResponsiveMasonry columnsCountBreakPoints={{ 350: 2, 750: 3, 900: 4 }}>
               <Masonry gutter="25px">
                 {posts.map((item, index) => (
-                  <div key={index}>
+                  <div key={item._id}>
                     <PostPreview {...item} />
                   </div>
                 ))}
               </Masonry>
             </ResponsiveMasonry>
-          </InfiniteScroll>
+          
         ) : (
           <p className="text-gray-500">No posts available.</p>
         )}

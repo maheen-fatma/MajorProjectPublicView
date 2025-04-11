@@ -18,29 +18,10 @@ function EditPassword() {
     };
 
     const changePassword = async () => {
-        try {
-            const response = await axios.post(
-                `${import.meta.env.VITE_BACKEND_URL}/users/change-password`,
-                { newPassword, oldPassword },
-                { withCredentials: true }
-            );
+       
+            alert("🚫 This is a demo version of the application.\n\nInteractive features like changing password is disabled.\n\nIf you'd like access to the full version, please contact Maheen Fatma.");
 
-            console.log(response.data.message);
-
-            setSuccessMessage("Password changed successfully!"); // Show success message
-
-            setTimeout(() => {
-                navigate("/my-account"); // Navigate after 2 seconds
-            }, 1000);
-
-        } catch (error) {
-            
-            if (error.response?.data?.message) {
-                setError(error.response.data.message);
-            } else {
-                setError("Something went wrong. Please try again.");
-            }
-        }
+       
     };
 
     const changePasswordHandler = () => {
