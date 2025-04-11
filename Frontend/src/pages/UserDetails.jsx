@@ -61,7 +61,12 @@ const handleClick = (id) => {
     dbService.getAllPost(userId, page)
       .then((newPosts) => {
         if (newPosts.length > 0) {
-          setPosts((prevPosts) => [...prevPosts, ...newPosts]);
+          setPosts((prevPosts) => {
+            const existingIds = new Set(prevPosts.map(p => p.$id));
+            const filteredNew = newPosts.filter(p => !existingIds.has(p.$id));
+            return [...prevPosts, ...filteredNew];
+          });
+          
           setPage((prev) => prev + 1);  // page is updated here AFTER posts are fetched
         } else {
           setHasMore(false);
