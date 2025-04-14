@@ -94,6 +94,7 @@ const loginUser = asyncHandler ( async (req,res)=>{
 
     const options = { //since cookies are modifiable at the frontend
         httpOnly: true,
+        sameSite: "None", 
         secure:true
     }
     return res
