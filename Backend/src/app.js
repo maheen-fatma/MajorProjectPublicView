@@ -8,7 +8,7 @@ import searchRouter from './routes/search.routes.js'
 import { ApiError } from "./utils/ApiError.js";  
 const app = express()
 app.use(cors({
-    origin: "http://localhost:5173", //process.env.CORS_ORIGIN,
+    origin: process.env.CORS_ORIGIN,
     credentials: true
 }))
 app.use(express.json({limit: "16kb"}))
