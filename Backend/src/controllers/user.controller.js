@@ -127,6 +127,7 @@ const logoutUser = asyncHandler ( async (req,res)=>{
     
     const options = {
         httpOnly: true,
+        sameSite: "None",
         secure: true
     }
 
@@ -154,6 +155,7 @@ const refreshAccessToken = asyncHandler ( async (req,res)=>{
 
     const options = {
         httpOnly: true,
+        sameSite: "None",
         secure: true
     }
 
